@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TIB Systems — Standalone Audio-Video Training Apps</title>
+<meta name="description" content="Six self-paced, screen-by-screen SAP controls training apps from TIB Systems LLC — watch it, hear it, do it." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1F3864; --navy-dark:#152847; --teal:#1F7A8C; --amber:#C65911; --amber-dark:#A84B0D;
+    --gold:#B08D57; --bg:#F5F6F8; --panel:#FFFFFF; --text:#20262E; --muted:#6B7280; --line:#E2E5EA;
+    --serif: "Playfair Display", Georgia, serif;
+    --sans: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; font-family:var(--sans); color:var(--text); background:var(--bg); line-height:1.55;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+
+  .topbar{background:var(--navy-dark); color:#fff; padding:10px 28px; display:flex; align-items:center; justify-content:space-between; font-size:13px;}
+  .topbar .brand-mark{font-weight:700; letter-spacing:.5px;}
+  .topbar .brand-mark span{color:var(--gold);}
+  .topbar .offices{color:#B7C6DE;}
+
+  .hero{
+    background:
+      radial-gradient(1100px 480px at 85% -10%, rgba(176,141,87,0.25), transparent 60%),
+      linear-gradient(155deg, var(--navy) 0%, var(--navy-dark) 65%);
+    color:#fff; padding:72px 28px 88px; position:relative; overflow:hidden;
+  }
+  .hero-inner{max-width:1100px; margin:0 auto; position:relative;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px; font-size:12.5px; font-weight:700;
+    letter-spacing:1.6px; text-transform:uppercase; color:var(--gold);
+    border:1px solid rgba(176,141,87,0.5); padding:6px 14px; border-radius:100px; margin-bottom:26px;
+  }
+  .hero h1{font-family:var(--serif); font-weight:700; font-size:clamp(32px,4.6vw,50px); line-height:1.14; margin:0 0 20px; max-width:800px;}
+  .hero h1 em{font-style:italic; color:var(--gold);}
+  .hero p.lede{font-size:17.5px; color:#CBD6E8; max-width:640px; margin:0 0 34px;}
+  .hero-stats{display:flex; gap:34px; flex-wrap:wrap; margin-top:8px;}
+  .hero-stats .stat b{display:block; font-family:var(--serif); font-size:28px; color:#fff;}
+  .hero-stats .stat span{font-size:12px; color:#9FB0CB; text-transform:uppercase; letter-spacing:.5px;}
+
+  .section{max-width:1100px; margin:0 auto; padding:60px 28px;}
+  .section-head{max-width:660px; margin-bottom:36px;}
+  .section-head .kicker{font-size:12.5px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase; color:var(--teal); margin-bottom:10px;}
+  .section-head h2{font-family:var(--serif); font-size:clamp(24px,3vw,32px); margin:0 0 12px; color:var(--navy-dark);}
+  .section-head p{color:var(--muted); font-size:15px; margin:0;}
+
+  .app-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
+  @media (max-width:820px){ .app-grid{grid-template-columns:1fr;} }
+
+  .app-card{
+    background:var(--panel); border:1px solid var(--line); border-radius:14px;
+    padding:26px 26px 22px; position:relative; overflow:hidden;
+    box-shadow:0 1px 3px rgba(20,30,50,0.05);
+    display:flex; flex-direction:column; transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .app-card:hover{ box-shadow:0 10px 28px rgba(20,30,50,0.10); transform:translateY(-2px); }
+  .app-card .top-row{display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;}
+  .app-card .monogram{
+    font-family:var(--serif); font-weight:700; font-size:16px; width:38px; height:38px;
+    border-radius:9px; display:flex; align-items:center; justify-content:center; color:#fff;
+  }
+  .app-card .priority{font-size:11px; font-weight:700; color:var(--muted); letter-spacing:.5px; text-transform:uppercase;}
+  .app-card .format-tag{font-size:11px; font-weight:700; letter-spacing:0.8px; text-transform:uppercase; color:var(--teal); margin-bottom:8px;}
+  .app-card h3{font-family:var(--serif); font-size:19px; margin:0 0 8px; color:var(--navy-dark); line-height:1.28;}
+  .app-card .app-no{font-size:11.5px; color:var(--muted); font-family:ui-monospace,SFMono-Regular,Menlo,monospace; margin-bottom:12px;}
+  .app-card p.pitch{font-size:13.8px; color:var(--text); margin:0 0 18px; flex:1;}
+  .app-card .stat-row{display:flex; gap:20px; padding:12px 0; border-top:1px solid var(--line); margin-bottom:18px;}
+  .app-card .stat-row .s b{display:block; font-family:var(--serif); font-size:19px; color:var(--navy);}
+  .app-card .stat-row .s span{font-size:10.5px; color:var(--muted); text-transform:uppercase; letter-spacing:.4px;}
+  .app-card .cta-row{display:flex; gap:10px; flex-wrap:wrap;}
+  .btn{display:inline-flex; align-items:center; gap:6px; font-size:13.5px; font-weight:700; padding:10px 18px; border-radius:7px; text-decoration:none; cursor:pointer; border:none;}
+  .btn-primary{background:var(--amber); color:#fff;}
+  .btn-primary:hover{background:var(--amber-dark);}
+  .btn-ghost{background:transparent; color:var(--navy); border:1px solid var(--line);}
+  .btn-ghost:hover{border-color:var(--navy);}
+
+  .c1 .monogram{background:var(--navy);}
+  .c2 .monogram{background:var(--teal);}
+  .c3 .monogram{background:#5C7A9E;}
+  .c4 .monogram{background:var(--amber);}
+  .c5 .monogram{background:var(--gold);}
+  .c6 .monogram{background:#8a4a2e;}
+
+  .how{background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .how-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:26px; max-width:1100px; margin:0 auto; padding:52px 28px;}
+  @media (max-width:820px){.how-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:520px){.how-grid{grid-template-columns:1fr;}}
+  .how-step .num{font-family:var(--serif); font-size:15px; color:var(--gold); font-weight:700; margin-bottom:8px;}
+  .how-step h4{margin:0 0 6px; font-size:15px; color:var(--navy-dark);}
+  .how-step p{margin:0; font-size:13.2px; color:var(--muted);}
+
+  footer{background:var(--navy-dark); color:#B7C6DE; padding:44px 28px 30px;}
+  .footer-inner{max-width:1100px; margin:0 auto; display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px; font-size:13px;}
+  footer .brand{color:#fff; font-weight:700; margin-bottom:6px; font-family:var(--serif); font-size:17px;}
+  footer .col h5{color:#fff; font-size:12px; letter-spacing:.5px; text-transform:uppercase; margin:0 0 10px;}
+  footer .col a{display:block; color:#B7C6DE; text-decoration:none; margin-bottom:6px; font-size:13px;}
+  footer .col a:hover{color:#fff;}
+  .footer-bottom{max-width:1100px; margin:30px auto 0; padding-top:20px; border-top:1px solid rgba(255,255,255,0.12); font-size:12px; color:#8298B8;}
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="brand-mark">TIB SYSTEMS <span>LLC</span></div>
+    <div class="offices">Atlanta, GA · Hyderabad, India · RAK, UAE</div>
+  </div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Standalone Audio-Video Apps</div>
+      <h1>Six ways to learn SAP Controls <em>by watching, listening, and doing</em> — not just reading.</h1>
+      <p class="lede">Every app in this collection pairs a real SAP screen, screenshot, or narrated evidence pack with step-by-step instruction. Start with foundations, move into judgment-based evidence review, and finish producing your own evidence in a live sandbox — in whatever order fits how you learn.</p>
+      <div class="hero-stats">
+        <div class="stat"><b>6</b><span>Training Apps</span></div>
+        <div class="stat"><b>154+</b><span>Procedures, Findings &amp; Episodes</span></div>
+        <div class="stat"><b>2</b><span>Evidence Types Taught (App 6)</span></div>
+        <div class="stat"><b>1</b><span>Continuous Client Engagement</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="apps">
+      <div class="section-head">
+        <div class="kicker">The Collection — In Recommended Order</div>
+        <h2>Choose your format</h2>
+        <p>Cards below are ordered by TIB's recommended learning priority. Open any course's landing page to see exactly what's inside before you sign in.</p>
+      </div>
+
+      <div class="app-grid">
+
+        <!-- PRIORITY 1 — App 6 -->
+        <article class="app-card c6">
+          <div class="top-row"><div class="monogram">A6</div><div class="priority">Priority 1</div></div>
+          <div class="format-tag">Live SAP Sandbox — Hands-On Evidence Capture</div>
+          <h3>SAP Controls Consultant — Hands-On Course</h3>
+          <div class="app-no">App 6 · Evidence Capture Training</div>
+          <p class="pitch">No-Access Track (App 5) teaches you to judge evidence someone else handed you. This is where you go get it yourself — the same 15 domains and 64 items, produced live in an SAP GRC sandbox, screen by screen.</p>
+          <div class="stat-row">
+            <div class="s"><b>64</b><span>Items, Live</span></div>
+            <div class="s"><b>15</b><span>Domains</span></div>
+            <div class="s"><b>Free</b><span>With Bundle</span></div>
+          </div>
+          <div class="cta-row"><a class="btn btn-primary" href="./landing-app6-evidence-capture.html">Explore Course →</a></div>
+        </article>
+
+        <!-- PRIORITY 2 — App 5 -->
+        <article class="app-card c5">
+          <div class="top-row"><div class="monogram">A5</div><div class="priority">Priority 2</div></div>
+          <div class="format-tag">Judgment-First Console — Evidence Pack Only</div>
+          <h3>SAP Controls Analyst — No-Access Track</h3>
+          <div class="app-no">App 5 · Primary Console</div>
+          <p class="pitch">Reach an audit conclusion from a provided evidence pack alone — no live system access. Uses a Condition / Criteria / Cause / Effect / Recommendation workpaper format across 64 findings, with two alternate scenario sets for repeat practice.</p>
+          <div class="stat-row">
+            <div class="s"><b>64</b><span>Findings</span></div>
+            <div class="s"><b>15</b><span>Chapters</span></div>
+            <div class="s"><b>2</b><span>Scenario Sets</span></div>
+          </div>
+          <div class="cta-row"><a class="btn btn-primary" href="./landing-app5-noaccess-console.html">Explore Course →</a></div>
+        </article>
+
+        <!-- PRIORITY 3 — App 1 -->
+        <article class="app-card c1">
+          <div class="top-row"><div class="monogram">A1</div><div class="priority">Priority 3</div></div>
+          <div class="format-tag">Screen-Recorded Video + Written Reference</div>
+          <h3>SAP Controls Training Viewer — Audit Procedure Suite</h3>
+          <div class="app-no">App 1 · TIB-AUD-CTL-001</div>
+          <p class="pitch">90 senior audit procedures across 9 domains, built around one continuous client engagement — PetroNova, S/4HANA RISE — with real findings, SOX scoping, deficiency rating, and pre-audit readiness.</p>
+          <div class="stat-row">
+            <div class="s"><b>90</b><span>Procedures</span></div>
+            <div class="s"><b>9</b><span>Domains</span></div>
+            <div class="s"><b>1</b><span>Continuous Engagement</span></div>
+          </div>
+          <div class="cta-row"><a class="btn btn-primary" href="./landing-app1-procedure-suite.html">Explore Course →</a></div>
+        </article>
+
+        <!-- PRIORITY 4 — App 4 -->
+        <article class="app-card c4">
+          <div class="top-row"><div class="monogram">A4</div><div class="priority">Priority 4</div></div>
+          <div class="format-tag">Narrated Video Companion</div>
+          <h3>No-Access Track — Screenshot Capture Walkthrough</h3>
+          <div class="app-no">App 4 · Companion to App 5</div>
+          <p class="pitch">Narrated video companion to the No-Access Track console (App 5): reinforces recognition of the same 64 findings through guided narration rather than independent drafting — 147 scenes across 15 domains.</p>
+          <div class="stat-row">
+            <div class="s"><b>147</b><span>Narrated Scenes</span></div>
+            <div class="s"><b>15</b><span>Domains</span></div>
+            <div class="s"><b>64</b><span>Findings Reinforced</span></div>
+          </div>
+          <div class="cta-row"><a class="btn btn-primary" href="./landing-app4-noaccess-walkthrough.html">Explore Course →</a></div>
+        </article>
+
+        <!-- PRIORITY 5 — App 2 -->
+        <article class="app-card c2">
+          <div class="top-row"><div class="monogram">A2</div><div class="priority">Priority 5</div></div>
+          <div class="format-tag">Full-Production Interactive Video</div>
+          <h3>TIB SAP Controls Analyst — 25 Live Demos</h3>
+          <div class="app-no">App 2 · Full Production</div>
+          <p class="pitch">Full interactive video walkthrough across 25 episodes / 5 modules — SAP foundations, security &amp; role design, GRC Access Control, controls/audit/evidence, and senior-consultant delivery — including career and interview prep.</p>
+          <div class="stat-row">
+            <div class="s"><b>25</b><span>Episodes</span></div>
+            <div class="s"><b>5</b><span>Modules</span></div>
+            <div class="s"><b>Full</b><span>Production</span></div>
+          </div>
+          <div class="cta-row"><a class="btn btn-primary" href="./landing-app2-livedemo.html">Explore Course →</a></div>
+        </article>
+
+        <!-- PRIORITY 6 — App 3 -->
+        <article class="app-card c3">
+          <div class="top-row"><div class="monogram">A3</div><div class="priority">Priority 6</div></div>
+          <div class="format-tag">Condensed Narrated Refresher</div>
+          <h3>SAP Security, Fiori &amp; GRC — Self-Paced Tutorial</h3>
+          <div class="app-no">App 3 · Condensed</div>
+          <p class="pitch">A condensed, self-paced narration of the same 25-episode curriculum as App 2, with roughly 25–35% fewer scenes per episode — a lighter production of the same content, best used as a refresher.</p>
+          <div class="stat-row">
+            <div class="s"><b>25</b><span>Episodes</span></div>
+            <div class="s"><b>5</b><span>Modules</span></div>
+            <div class="s"><b>Lite</b><span>Production</span></div>
+          </div>
+          <div class="cta-row"><a class="btn btn-primary" href="./landing-app3-grcmanual.html">Explore Course →</a></div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="how">
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="num">Step 1</div>
+          <h4>Pick a course</h4>
+          <p>Open any landing page below to see the full domain-by-domain contents before you commit.</p>
+        </div>
+        <div class="how-step">
+          <div class="num">Step 2</div>
+          <h4>Watch, view, or read</h4>
+          <p>Every step is a real SAP screen, screenshot, or evidence exhibit — never a slide.</p>
+        </div>
+        <div class="how-step">
+          <div class="num">Step 3</div>
+          <h4>Listen or draft</h4>
+          <p>Narrated instruction on the video/screenshot apps; a real workpaper draft on the judgment-based console.</p>
+        </div>
+        <div class="how-step">
+          <div class="num">Step 4</div>
+          <h4>Sign in &amp; go</h4>
+          <p>Enrolled trainees sign in directly from each course's landing page — no separate portal to find.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="brand">TIB Systems LLC</div>
+        <div>SAP Security · GRC · Controls Training &amp; Advisory</div>
+      </div>
+      <div class="col">
+        <h5>Courses</h5>
+        <a href="./landing-app6-evidence-capture.html">App 6 — Evidence Capture (Hands-On)</a>
+        <a href="./landing-app5-noaccess-console.html">App 5 — No-Access Track Console</a>
+        <a href="./landing-app1-procedure-suite.html">App 1 — Procedure Video Suite</a>
+        <a href="./landing-app4-noaccess-walkthrough.html">App 4 — No-Access Video Companion</a>
+        <a href="./landing-app2-livedemo.html">App 2 — 25 Live Demos (Full)</a>
+        <a href="./landing-app3-grcmanual.html">App 3 — GRC Tutorial (Condensed)</a>
+      </div>
+      <div class="col">
+        <h5>Offices</h5>
+        <a>Atlanta, GA — USA</a>
+        <a>Hyderabad — India</a>
+        <a>RAK — UAE</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 TIB Systems LLC. All procedures, scenarios, and screen captures use fictional company data for training purposes.</div>
+  </footer>
+
+</body>
+</html>
