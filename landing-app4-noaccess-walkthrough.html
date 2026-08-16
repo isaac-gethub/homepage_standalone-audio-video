@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>No-Access Track — Screenshot Capture Walkthrough | TIB Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1F3864; --navy-dark:#152847; --teal:#1F7A8C; --amber:#C65911; --amber-dark:#A84B0D;
+    --gold:#B08D57; --bg:#F5F6F8; --panel:#FFFFFF; --text:#20262E; --muted:#6B7280; --line:#E2E5EA;
+    --accent:var(--amber);
+    --serif:"Playfair Display", Georgia, serif; --sans:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; font-family:var(--sans); color:var(--text); background:var(--bg); line-height:1.55;}
+  a{color:inherit;}
+  .topbar{background:var(--navy-dark); color:#fff; padding:10px 28px; font-size:13px; display:flex; justify-content:space-between; align-items:center;}
+  .topbar a{color:#B7C6DE; text-decoration:none;}
+  .topbar a:hover{color:#fff;}
+
+  .hero{background:linear-gradient(155deg, var(--accent) 0%, var(--navy-dark) 75%); color:#fff; padding:56px 28px 64px;}
+  .hero-inner{max-width:980px; margin:0 auto;}
+  .doccode-pill{display:inline-block; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12px; background:rgba(255,255,255,0.15); padding:5px 12px; border-radius:100px; margin-bottom:18px;}
+  .hero h1{font-family:var(--serif); font-size:clamp(28px,4vw,42px); margin:0 0 16px; line-height:1.15; max-width:700px;}
+  .hero p.lede{font-size:16.5px; color:#FBE6D4; max-width:620px; margin:0 0 30px;}
+  .hero-ctas{display:flex; gap:12px; flex-wrap:wrap;}
+  .btn{display:inline-flex; align-items:center; gap:6px; font-size:14px; font-weight:700; padding:12px 22px; border-radius:7px; text-decoration:none; cursor:pointer; border:none;}
+  .btn-primary{background:#fff; color:var(--amber-dark);}
+  .btn-primary:hover{background:#f3f3f3;}
+  .btn-outline{background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.4);}
+  .btn-outline:hover{border-color:#fff;}
+  .stat-strip{display:flex; gap:40px; flex-wrap:wrap; margin-top:36px; padding-top:28px; border-top:1px solid rgba(255,255,255,0.2);}
+  .stat-strip .s b{display:block; font-family:var(--serif); font-size:28px;}
+  .stat-strip .s span{font-size:11.5px; color:#FCEAD9; text-transform:uppercase; letter-spacing:.5px;}
+
+  .section{max-width:980px; margin:0 auto; padding:56px 28px;}
+  .section-head{max-width:660px; margin-bottom:32px;}
+  .kicker{font-size:12px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase; color:var(--teal); margin-bottom:10px;}
+  .section-head h2{font-family:var(--serif); font-size:clamp(24px,3vw,30px); margin:0 0 10px; color:var(--navy-dark);}
+  .section-head p{color:var(--muted); font-size:15px; margin:0;}
+
+  .format-row{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  @media (max-width:760px){.format-row{grid-template-columns:1fr;}}
+  .fcard{background:#fff; border:1px solid var(--line); border-radius:12px; padding:22px;}
+  .fcard .ico{font-size:22px; margin-bottom:10px;}
+  .fcard h4{margin:0 0 6px; font-size:15px; color:var(--navy-dark);}
+  .fcard p{margin:0; font-size:13.5px; color:var(--muted);}
+
+  .chapter-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
+  @media (max-width:700px){.chapter-grid{grid-template-columns:1fr;}}
+  .chapter{background:#fff; border:1px solid var(--line); border-radius:12px; padding:18px 20px; display:flex; gap:14px; align-items:flex-start;}
+  .chapter .num{font-family:var(--serif); font-weight:700; font-size:18px; color:var(--amber); flex:0 0 auto; width:28px;}
+  .chapter h4{margin:0 0 4px; font-size:14.5px; color:var(--navy-dark); line-height:1.35;}
+  .chapter .tc{font-size:11.5px; color:var(--muted); font-family:ui-monospace,SFMono-Regular,Menlo,monospace;}
+  .chapter .tc .cnt{display:inline-block; margin-left:6px; font-family:var(--sans); font-size:10.5px; font-weight:700; color:var(--amber); background:#FBF0E6; padding:1px 7px; border-radius:100px;}
+
+  .cta-band{background:var(--navy-dark); color:#fff; padding:52px 28px; text-align:center;}
+  .cta-band h3{font-family:var(--serif); font-size:26px; margin:0 0 12px;}
+  .cta-band p{color:#B7C6DE; max-width:540px; margin:0 auto 26px; font-size:15px;}
+
+  footer{background:var(--navy-dark); color:#8298B8; padding:26px 28px; text-align:center; font-size:12px; border-top:1px solid rgba(255,255,255,0.1);}
+  footer a{color:#B7C6DE; text-decoration:none;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="./index.html">← All Training Apps</a>
+  <span>TIB Systems LLC</span>
+</div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="doccode-pill">App 4 · Narrated Video Companion</span>
+    <h1>No-Access Track — Screenshot Capture Walkthrough</h1>
+    <p class="lede">Most auditors never get a live SAP login. This narrated video walkthrough teaches you to review, question, and evidence a control entirely from screenshots and exported reports — 147 scenes across 15 real control domains.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="https://noaccess-video-walkthrough.vercel.app" target="_blank" rel="noopener">Sign In &amp; Launch →</a>
+      <a class="btn btn-outline" href="#contents">See Full Contents</a>
+    </div>
+    <div class="stat-strip">
+      <div class="s"><b>147</b><span>Narrated Scenes</span></div>
+      <div class="s"><b>15</b><span>Control Domains</span></div>
+      <div class="s"><b>0</b><span>System Access Needed</span></div>
+      <div class="s"><b>↩️</b><span>Resume Anytime</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="section-head">
+    <div class="kicker">Format</div>
+    <h2>Built for the reality most auditors work in</h2>
+    <p>You'll rarely be handed a live SAP login on a real engagement. Every scene here trains you to work from what you actually get: screenshots, exported logs, and reports.</p>
+  </div>
+  <div class="format-row">
+    <div class="fcard">
+      <div class="ico">🖼️</div>
+      <h4>Evidence-first screenshots</h4>
+      <p>Each scene is a real captured screen or export — exactly what you'd receive from a client with no system access granted.</p>
+    </div>
+    <div class="fcard">
+      <div class="ico">🔊</div>
+      <h4>Narrated instruction</h4>
+      <p>Every scene is read aloud on demand, so you can listen while you study the evidence on screen.</p>
+    </div>
+    <div class="fcard">
+      <div class="ico">↩️</div>
+      <h4>Resume where you left off</h4>
+      <p>Progress saves automatically across all 15 domains — pick up exactly where you stopped.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contents">
+  <div class="section-head">
+    <div class="kicker">Full Course Contents</div>
+    <h2>15 control domains, 147 scenes</h2>
+    <p>Covers the full access-and-change control surface an auditor is expected to evidence without direct system access.</p>
+  </div>
+  <div class="chapter-grid">
+    <div class="chapter"><span class="num">01</span><div><h4>User Access &amp; Authentication</h4><div class="tc">SUIM · RSUSR002 · RSUSR100 <span class="cnt">5 findings</span></div></div></div>
+    <div class="chapter"><span class="num">02</span><div><h4>Role / Profile Design</h4><div class="tc">PFCG <span class="cnt">4 findings</span></div></div></div>
+    <div class="chapter"><span class="num">03</span><div><h4>Segregation of Duties</h4><div class="tc">GRC ARA · SU24 · SU25 <span class="cnt">6 findings</span></div></div></div>
+    <div class="chapter"><span class="num">04</span><div><h4>Fiori / UI5 Authorization</h4><div class="tc">PFCG · LPD_CUST · SPRO <span class="cnt">4 findings</span></div></div></div>
+    <div class="chapter"><span class="num">05</span><div><h4>Sensitive / Emergency Access</h4><div class="tc">GRC EAM <span class="cnt">4 findings</span></div></div></div>
+    <div class="chapter"><span class="num">06</span><div><h4>Access Request Workflow</h4><div class="tc">GRC ARQ · GRC MSMP <span class="cnt">4 findings</span></div></div></div>
+    <div class="chapter"><span class="num">07</span><div><h4>Access Certification / UAR Campaigns</h4><div class="tc">GRC UAR <span class="cnt">4 findings</span></div></div></div>
+    <div class="chapter"><span class="num">08</span><div><h4>Risk Analysis &amp; Remediation</h4><div class="tc">GRC RAR <span class="cnt">4 findings</span></div></div></div>
+    <div class="chapter"><span class="num">09</span><div><h4>Configuration &amp; Change Control</h4><div class="tc">GRC PC · GRC CCM <span class="cnt">6 findings</span></div></div></div>
+    <div class="chapter"><span class="num">10</span><div><h4>Table Logging &amp; Change Documents</h4><div class="tc">SE11 / SE13 · SCU3 <span class="cnt">4 findings</span></div></div></div>
+    <div class="chapter"><span class="num">11</span><div><h4>Transport Management</h4><div class="tc">STMS · SE01 · SE09 · SE10 <span class="cnt">4 findings</span></div></div></div>
+    <div class="chapter"><span class="num">12</span><div><h4>ITGC (Batch Jobs &amp; Execution)</h4><div class="tc">SM36 · SM37 <span class="cnt">4 findings</span></div></div></div>
+    <div class="chapter"><span class="num">13</span><div><h4>Interface &amp; RFC Controls</h4><div class="tc">SM59 · SMT1 · SU01 <span class="cnt">4 findings</span></div></div></div>
+    <div class="chapter"><span class="num">14</span><div><h4>Security Parameters &amp; Password Policy</h4><div class="tc">RZ11 <span class="cnt">3 findings</span></div></div></div>
+    <div class="chapter"><span class="num">15</span><div><h4>Security Audit Log</h4><div class="tc">SM18 · SM19 · SM20 <span class="cnt">4 findings</span></div></div></div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <h3>Learn to audit the evidence, not just the live system.</h3>
+  <p>Sign in with your enrolled trainee account to launch the walkthrough, or contact TIB Systems about enrollment.</p>
+  <a class="btn btn-primary" href="https://noaccess-video-walkthrough.vercel.app" target="_blank" rel="noopener" style="background:var(--amber); color:#fff;">Sign In &amp; Launch →</a>
+</section>
+
+<footer>
+  TIB Systems LLC · SAP Security · GRC · Controls Training &amp; Advisory · <a href="./index.html">All Training Apps</a>
+</footer>
+
+</body>
+</html>
